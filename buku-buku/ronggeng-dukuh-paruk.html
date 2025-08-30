@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest Marketplace</title>
+    <link rel="icon" href="../assests/logo.png">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,body{
+    scroll-behavior: smooth;
+    height: 100%;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  backdrop-filter: blur(6px);
+  position:fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0077cc;
+}
+
+.breadcrumb {
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .book-detail {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin: 30px 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .book-cover {
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        }
+        
+        .book-cover-content {
+            text-align: center;
+            color: white;
+            
+        }
+
+        .book-cover-content img{
+            box-shadow: 5px 5px 5px 5px rgb(25, 25, 25, 0.75);
+            width: 400px;
+        }
+        
+        .book-cover i {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+        
+        .book-cover h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .book-info {
+            padding: 30px;
+        }
+        
+        .book-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .book-author {
+            font-size: 1.4rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .book-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .meta-item h4 {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .meta-item p {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .book-description {
+            margin-bottom: 30px;
+        }
+        
+        .book-description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .book-description p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 1px solid #e1e8ed;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .related-books {
+            margin: 50px 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .book-card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .book-card-body {
+            padding: 20px;
+        }
+        
+        .book-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .book-card-author {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-info {
+            margin-bottom: 20px;
+        }
+        
+        .footer-info p {
+            margin: 10px 0;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<header>
+    <nav class="navbar">
+      <a href="../index.html" class="logo-container">
+        <img src="../assests/logo.png" alt="Logo" class="logo">
+        <span class="company-name">BookNest</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html/#profile">Tentang</a></li>
+        <li><a href="../index.html/#products">Produk</a></li>
+        <li><a href="../index.html/#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Beranda</a> > <a href="#">Katalog</a> > <a href="#">Fiksi Sastra</a> > Ronggeng Dukuh Paruk
+        </div>
+        
+        <div class="book-detail">
+            <div class="book-cover">
+                <div class="book-cover-content">
+                    <i class="fas fa-book"></i>
+                    <h2>Ronggeng Dukuh Paruk</h2>
+                    <img src="https://gpu.id/data-gpu/images/img-book/94834/625173001.jpg" alt="cover-ronggeng-dukuh-paruh">
+                    <p>Ahmad Tohari</p>
+                </div>
+            </div>
+            
+            <div class="book-info">
+                <h1 class="book-title">Ronggeng Dukuh Paruk</h1>
+                <p class="book-author">oleh Ahmad Tohari</p>
+                
+                <div class="book-meta">
+                    <div class="meta-item">
+                        <h4>ISBN</h4>
+                        <p>978-9794190860</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4>Halaman</h4>
+                        <p>392</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4>Terbit</h4>
+                        <p>1982</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4>Rating</h4>
+                        <p>⭐ 4.6/5</p>
+                    </div>
+                </div>
+                
+                <div class="book-description">
+                    <h3>Sinopsis</h3>
+                    <p>Ronggeng Dukuh Paruk adalah novel trilogi karya Ahmad Tohari yang pertama kali diterbitkan pada tahun 1982. Novel ini bercerita tentang kehidupan Srintil, seorang penari ronggeng dari Dukuh Paruk, sebuah desa kecil dan terpencil di Banyumas, Jawa Tengah.</p>
+                    
+                    <p>Kisah dimulai ketika Srintil dipilih menjadi ronggeng baru desanya, menggantikan ronggeng sebelumnya yang telah meninggal. Sebagai ronggeng, Srintil tidak hanya menjadi penari tetapi juga simbol spiritual dan kebanggaan masyarakat Dukuh Paruk.</p>
+                    
+                    <div class="quote">
+                        <p>"Ronggeng bukan sekadar penari. Ronggeng adalah jiwa dari Dukuh Paruk."</p>
+                    </div>
+                    
+                    <p>Novel ini mengisahkan perjalanan hidup Srintil yang penuh liku-liku, dari seorang gadis desa yang polos hingga menjadi ronggeng yang terkenal. Melalui Srintil, Ahmad Tohari menyoroti berbagai masalah sosial, budaya, dan politik yang terjadi di pedesaan Jawa pada masa setelah kemerdekaan Indonesia, khususnya peristiwa G30S/PKI tahun 1965.</p>
+                    
+                    <p>Ronggeng Dukuh Paruk tidak hanya menjadi karya sastra yang penting tetapi juga telah diadaptasi menjadi film berjudul "Sang Penari" yang dirilis pada tahun 2011. Novel ini diakui sebagai salah satu mahakarya sastra Indonesia modern yang mengangkat kearifan lokal dan nilai-nilai kemanusiaan.</p>
+                </div>
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Tambah ke Keranjang</a>
+                    <a href="#" class="btn btn-secondary"><i class="fas fa-heart"></i> Tambah ke Wishlist</a>
+                    <a href="#" class="btn btn-secondary"><i class="fas fa-share-alt"></i> Bagikan</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="related-books">
+            <h2 class="section-title">Buku Lainnya dari Penulis</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-card-header">
+                        <h3>Lintang Kemukus</h3>
+                    </div>
+                    <div class="book-card-body">
+                        <p class="book-card-author">Ahmad Tohari</p>
+                        <a href="#" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-card-header">
+                        <h3>Jentera Bianglala</h3>
+                    </div>
+                    <div class="book-card-body">
+                        <p class="book-card-author">Ahmad Tohari</p>
+                        <a href="#" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-card-header">
+                        <h3>Kubah</h3>
+                    </div>
+                    <div class="book-card-body">
+                        <p class="book-card-author">Ahmad Tohari</p>
+                        <a href="#" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> Lokasi: Malang, Indonesia</p>
+                <p><i class="fas fa-envelope"></i> Kontak: info@booknest.id</p>
+            </div>
+            <div class="copyright">
+                <p>© 2025 BookNest. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
