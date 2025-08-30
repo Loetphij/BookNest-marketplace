@@ -38,7 +38,7 @@ Font Awesome - Ikon untuk antarmuka yang lebih baik
 Google Fonts - Tipografi yang menarik dan mudah dibaca
 
 Struktur Proyek
-text
+
 booknest-website/
 ├── index.html                  # Halaman beranda utama
 ├── style.css                   # Halaman khusus untuk styling index.html
