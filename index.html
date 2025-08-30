@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookNest Marketplace</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assests/logo.png">
+  <link rel="icon" href="assets/logo.png">
 </head>
 <body>
     <div class="page-wrapper">
@@ -13,7 +13,7 @@
   <header>
     <nav class="navbar">
       <a href="#landing" class="logo-container">
-        <img src="assests/logo.png" alt="Logo" class="logo">
+        <img src="assets/logo.png" alt="Logo" class="logo">
         <span class="company-name">BookNest</span>
       </a>
       <ul class="nav-links">
@@ -28,7 +28,7 @@
   <section id="landing" class="landing">
     <h2>Selamat Datang di <span>BookNest</span></h2>
     <p>Marketplace modern untuk <strong>buku</strong> dan <strong>alat tulis</strong>, mendukung literasi dan kebutuhan belajar masyarakat Indonesia.</p>
-    <a href="#products" class="btn">Jelajahi Produk</a>
+    <a href="#books-grid" class="btn">Jelajahi Produk</a>
   </section>
 
   <!-- Profile Section -->
@@ -126,21 +126,21 @@
     </div>
   </div>
 </section>
-<h2 class="new-book" style="display: flex; justify-content: center; color: #0077cc; font-size: 2rem; margin-bottom: 30px; ">Buku-buku Terlaris</h2>
+<h2 class="new-book" id="books-grid" style="display: flex; justify-content: center; color: #0077cc; font-size: 2rem; margin-bottom: 30px; ">Buku-buku Terlaris</h2>
     <div class="books-grid">
             <div class="book-card">
             <div class="book-header">
                 <div class="book-title">
                     <div>Laskar Pelangi</div>
                 </div>
-                  <img src="https://simpus.mkri.id/uploaded_files/sampul_koleksi/original/Monograf//uploadedfiles/perpustakaan/11610-11613.jpg" alt="cover-laskar-pelangi"  class="book-cover">
+                  <img src="assets/cover-laskar-pelangi.jpg" alt="cover-laskar-pelangi"  class="book-cover">
                 <div class="book-author">
                     <div>Penulis:</div>
                     <div>Andrea Hirata</div>
                 </div>
                 </div>
             <div class="book-body">
-                <a href="buku-buku/laskar pelangi.html" class="detail-btn">Detail</a>
+                <a href="buku-buku/laskar-pelangi.html" class="detail-btn">Detail</a>
             </div>
         </div>
             
@@ -149,7 +149,7 @@
                     <div class="book-title">
                         <div>Bumi Manusia</div>
                     </div>
-                    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg" alt="cover-bumi-manusia" class="book-cover">
+                    <img src="assets/cover-bumi-manusia.jpg" alt="cover-bumi-manusia" class="book-cover">
                     <div class="book-author">
                         <div>Penulis:</div>
                         <div>Pramoedya Ananta Toer</div>
@@ -165,14 +165,14 @@
                     <div class="book-title">
                         <div>Negeri 5 Menara</div>
                     </div>
-                    <img src="assests/5mnr.png" alt="" class="book-cover">
+                    <img src="assets/cover-negeri-5-menara.png" alt="" class="book-cover">
                     <div class="book-author">
                         <div>Penulis:</div>
                         <div>Ahmad Fuadi</div>
                     </div>
                 </div>
                 <div class="book-body">
-                    <a href="buku-buku/negeri5menara.html" class="detail-btn">Detail</a>
+                    <a href="buku-buku/negeri-5-menara.html" class="detail-btn">Detail</a>
                 </div>
             </div>
             
@@ -181,7 +181,7 @@
                     <div class="book-title">
                         <div>Ronggeng Dukuh Paruk</div>
                     </div>
-                    <img src="https://gpu.id/data-gpu/images/img-book/94834/625173001.jpg" alt="cover-ronggeng-dukuh-paruh" class="book-cover">
+                    <img src="assets/cover-ronggeng-dukuh-paruk.jpg" alt="cover-ronggeng-dukuh-paruh" class="book-cover">
                     <div class="book-author">
                         <div>Penulis:</div>
                         <div>Ahmad Tohari</div>
@@ -223,7 +223,11 @@
   </div>
 </div>
 
-
+<a href="detail-halaman.html" style="text-decoration: none; color: #0077cc;">
+  <h2>
+    Detail halaman
+  </h2>
+</a>
 <footer>
     <div class="footer-container">
         <div class="footer-info">

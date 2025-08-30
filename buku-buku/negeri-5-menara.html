@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookNest Marketplace</title>
-    <link rel="icon" href="../assests/logo.png">
+    <link rel="icon" href="../assets/logo.png">
     <style>
         * {
   margin: 0;
@@ -315,12 +315,271 @@ html,body{
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
+             @media (max-width: 768px) {
+    /* Layout utama untuk mobile */
+    .book-detail {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Cover buku - tinggi maksimal 800px */
+    .book-cover {
+        padding: 20px;
+        order: 2; /* Urutan kedua setelah judul */
+        max-height: 800px;
+        height: auto;
+    }
+    
+    .book-cover i {
+        font-size: 5rem;
+        margin-bottom: 15px;
+    }
+    
+    .book-cover h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Info buku - urutan pertama */
+    .book-info {
+        padding: 20px;
+        order: 1;
+    }
+    
+    .book-title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .book-author {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    /* Meta buku/statistik */
+    .book-meta {
+        order: 3;
+        margin: 20px 0;
+        gap: 15px;
+    }
+    
+    .meta-item {
+        min-width: calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px);
+    }
+    
+    /* Sinopsis */
+    .book-description {
+        order: 4;
+        margin-bottom: 25px;
+    }
+    
+    .book-description h3 {
+        font-size: 1.3rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Tombol aksi */
+    .action-buttons {
+        order: 5;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Buku terkait */
+    .related-books {
+        order: 6;
+        margin: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Header mobile */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb {
+        padding: 0 15px;
+        font-size: 0.8rem;
+    }
+    
+    /* Footer mobile */
+    .footer-container {
+        padding: 0 15px;
+    }
+}
+
+/* Media Query untuk Mobile Devices - PERBAIKAN */
+@media (max-width: 768px) {
+    /* Layout utama untuk mobile - PERBAIKAN URUTAN */
+    .book-detail {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* JUDUL - Urutan 1 */
+    .book-info {
+        order: 1;
+        padding: 20px;
+    }
+    
+    .book-title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .book-author {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    /* COVER BUKU - Urutan 2 */
+    .book-cover {
+        order: 2;
+        padding: 20px;
+        max-height: 800px;
+        height: auto;
+    }
+    
+    .book-cover i {
+        font-size: 5rem;
+        margin-bottom: 15px;
+    }
+    
+    .book-cover h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* STATISTIK/META - Urutan 3 */
+    .book-meta {
+        order: 3;
+        margin: 20px 0;
+        gap: 15px;
+    }
+    
+    .meta-item {
+        min-width: calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px);
+    }
+    
+    /* SINOPSIS - Urutan 4 */
+    .book-description {
+        order: 4;
+        margin-bottom: 25px;
+    }
+    
+    .book-description h3 {
+        font-size: 1.3rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* TOMBOL AKSI - Urutan 5 */
+    .action-buttons {
+        order: 5;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* BUKU TERKAIT - Urutan 6 */
+    .related-books {
+        order: 6;
+        margin: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Header mobile */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb {
+        padding: 0 15px;
+        font-size: 0.8rem;
+        order: 0; /* Tetap di paling atas */
+    }
+    
+    /* Footer mobile */
+    .footer-container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-detail {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .book-info {
+        order: 1 !important;
+    }
+    
+    .book-cover {
+        order: 2 !important;
+    }
+}
     </style>
 </head>
 <header>
     <nav class="navbar">
       <a href="../index.html" class="logo-container">
-        <img src="../assests/logo.png" alt="Logo" class="logo">
+        <img src="../assets/logo.png" alt="Logo" class="logo">
         <span class="company-name">BookNest</span>
       </a>
       <ul class="nav-links">
@@ -342,7 +601,7 @@ html,body{
                     <div class="book-cover-content">
                         <i class="fas fa-book"></i>
                         <h2>Negeri 5 Menara</h2>
-                        <img src="../assests/5mnr.png" alt="cover-lima-menara">
+                        <img src="../assets/cover-negeri-5-menara.png" alt="cover-lima-menara">
                         <p>Ahmad Fuadi</p>
                     </div>
                 </div>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Website - BookNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ee 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  backdrop-filter: blur(6px);
+  position:fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px -7px 54px 1px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0077cc;
+}
+
+        
+        .page-title {
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .website-detail {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            border-left: 4px solid #3498db;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: #e3f2fd;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tech-item i {
+            font-size: 1.2rem;
+        }
+        
+        .page-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .page-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .page-list li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .color-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .color-name {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .code-snippet {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-info {
+            margin-bottom: 20px;
+        }
+        
+        .footer-info p {
+            margin: 10px 0;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+      <a href="#landing" class="logo-container">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+        <span class="company-name">BookNest</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#profile">Tentang</a></li>
+        <li><a href="#new-book">Produk</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="container">
+        <h1 class="page-title">Detail Website BookNest</h1>
+        
+        <div class="website-detail">
+            <div class="section">
+                <h2 class="section-title">Tentang BookNest</h2>
+                <p>BookNest adalah website toko buku online yang menampilkan berbagai buku karya penulis Indonesia. Website ini dirancang dengan antarmuka yang responsif dan modern, memungkinkan pengguna untuk menjelajahi koleksi buku, melihat detail buku, dan menghubungi toko melalui form kontak.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Fitur Utama</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Katalog Buku</h3>
+                        <p>Menampilkan koleksi buku dengan cover, judul, dan penulis secara menarik.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>Detail Buku</h3>
+                        <p>Halaman detail untuk setiap buku dengan sinopsis, metadata, dan informasi lengkap.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Desain Responsif</h3>
+                        <p>Website dapat diakses dengan optimal di desktop, tablet, dan perangkat mobile.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>UI Modern</h3>
+                        <p>Antarmuka pengguna yang modern dengan gradien warna dan efek hover.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Fitur E-Commerce</h3>
+                        <p>Tombol tambah ke keranjang, wishlist, dan berbagi produk.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Form Kontak</h3>
+                        <p>Formulir kontak yang simpel dan fungsional untuk menghubungi toko.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Teknologi yang Digunakan</h2>
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-gradient"></i>
+                        <span>CSS Gradient</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-font-awesome"></i>
+                        <span>Font Awesome</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-mobile"></i>
+                        <span>Media Queries</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Halaman yang Tersedia</h2>
+                <ul class="page-list">
+                    <li>Halaman Beranda (Katalog Buku)</li>
+                    <li>Detail Buku: Bumi Manusia - Pramoedya Ananta Toer</li>
+                    <li>Detail Buku: Negeri 5 Menara - Ahmad Fuadi</li>
+                    <li>Detail Buku: Laskar Pelangi - Andrea Hirata</li>
+                    <li>Detail Buku: Ronggeng Dukuh Paruk - Ahmad Tohari</li>
+                    <li>Halaman Kontak</li>
+                    <li>Halaman Detail Website (halaman ini)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Skema Warna</h2>
+                <div class="color-palette">
+                    <div class="color-item">
+                        <div class="color-box" style="background: #3498db;"></div>
+                        <span class="color-name">Primary (#3498db)</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #2c3e50;"></div>
+                        <span class="color-name">Secondary (#2c3e50)</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-box" style="background: #f5f7fa;"></div>
+                        <span class="color-name">Background (#f5f7fa)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Contoh Kode</h2>
+                <p>Struktur kode HTML untuk halaman detail buku:</p>
+                <div class="code-snippet">
+// Struktur dasar halaman detail buku<br>
+&lt;div class="book-detail"&gt;<br>
+&nbsp;&nbsp;&lt;div class="book-cover"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Cover buku<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="book-info"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="book-title"&gt;Bumi Manusia&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="book-author"&gt;oleh Pramoedya Ananta Toer&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Metadata dan sinopsis<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Flowchart</h2>
+                <p>berikut adalah gambaran flowchart pada website ini</p>
+                <img src="assets/Flowchart-navigasi-pengguna.png" alt="flowchart" style="width: 75vh;">
+            </div>
+            <div class="section">
+                <h2 class="section-title">ERD</h2>
+                <p>Berikut adalah gambaran ERD(Entity-Relationship Diagram) pada website ini</p>
+                <img src="assets/ERD.png" alt="ERD" style="width: 75vh;">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><i class="fas fa-map-marker-alt"></i> Lokasi: Jakarta, Indonesia</p>
+                <p><i class="fas fa-envelope"></i> Kontak: info@booknest.id</p>
+            </div>
+            <div class="copyright">
+                <p>© 2025 BookNest. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
